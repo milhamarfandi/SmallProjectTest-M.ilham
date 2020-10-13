@@ -24,7 +24,11 @@ class Product extends CI_Controller
 
     function save()
     {
-        $data = $this->product_model->save_product();
+        if ($this->product_model->save_product()) {
+            $data = array('response' => 'success', 'message' => 'Data Berhasil Ditambahkan');
+        }else{
+            $data = array('response' => 'error', 'message' => 'Data Gagal Ditambahkan');
+        }
         echo json_encode($data);
     }
 

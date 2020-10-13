@@ -139,11 +139,14 @@
                     price: price
                 },
                 success: function(data) {
-                    $('[name="product_code"]').val("");
-                    $('[name="product_name"]').val("");
-                    $('[name="price"]').val("");
-                    $('#Modal_Add').modal('hide');
-                    show_product();
+                        $('[name="product_code"]').val("");
+                        $('[name="product_name"]').val("");
+                        $('[name="price"]').val("");
+                        $('#Modal_Add').modal('hide');
+                        show_product();
+
+                        toastr[data.response](data.message);
+                        
                 }
             });
             return false;
