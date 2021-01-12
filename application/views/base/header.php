@@ -29,54 +29,32 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/ekko-lightbox/ekko-lightbox.css" />
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <style type="text/css">
-        .d-none {
-            display: none;
-        }
-
-        #imgView,
-        #imgViewEdit {
-            padding: 5px;
-            width: 150px;
-            height: 150px;
-        }
-
-        .loadAnimate {
-            animation: setAnimate ease 2.5s infinite;
-        }
-
-        @keyframes setAnimate {
-            0% {
-                color: #000;
-            }
-
-            50% {
-                color: transparent;
-            }
-
-            99% {
-                color: transparent;
-            }
-
-            100% {
-                color: #000;
-            }
-        }
-
-        .custom-file-label {
-            cursor: pointer;
-        }
-    </style>
 </head>
-<?php
-function rupiah($angka)
-{
-    $hasil_rupiah = "Rp " . number_format($angka, 2, ',', '.');
-    return $hasil_rupiah;
-}
-?>
+<style type="text/css">
+    .preloader {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #e5eff1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    .preloader>img {
+        width: 100px;
+    }
+</style>
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" oncontextmenu='return false;' onkeydown='return false;' onmousedown='return false;' ondragstart='return false' onselectstart='return false' style='-moz-user-select: none; cursor: default;'>
+    <div class="preloader">
+        <img src="<?= base_url('assets/images/loading.gif') ?>" alt="">
+    </div>
     <div class="wrapper">
         <div class="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
         <div class="error-data" data-error="<?= $this->session->flashdata('error'); ?>"></div>
+        <div style="display: none;" class="flash-data1" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+        <div style="display: none;" class="error-data1" data-error="<?= $this->session->flashdata('error'); ?>"></div>
